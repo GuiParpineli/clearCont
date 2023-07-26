@@ -9,7 +9,7 @@ class Navbar extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            color: Colors.black,
+            color: Colors.black54,
             width: double.infinity,
             child: Column(
               children: [
@@ -25,15 +25,21 @@ class Navbar extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text(
-                          "Perfil",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        IconButton(
+                        TextButton(
                             onPressed: () {},
-                            icon: Icon(
-                              Icons.person,
-                              color: Colors.white,
+                            child: Row(
+                              children: [
+                                Text(
+                                  "Perfil",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.person,
+                                      color: Colors.white,
+                                    )),
+                              ],
                             )),
                       ],
                     ),
