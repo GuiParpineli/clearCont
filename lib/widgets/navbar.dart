@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Navbar extends StatelessWidget {
   final List<String> menus;
+
   const Navbar({super.key, required this.menus});
 
   @override
@@ -18,9 +19,11 @@ class Navbar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset('assets/images/logo-white.webp', width: 50,)
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          'assets/images/logo-white.webp',
+                          width: 50,
+                        )),
                     Row(
                       children: [
                         TextButton(
@@ -44,13 +47,24 @@ class Navbar extends StatelessWidget {
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        menus[0],
-                        style: TextStyle(color: Colors.white),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10)),
+                      ),
+                      padding: EdgeInsets.all(10),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          menus[0],
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
                     Padding(
@@ -89,7 +103,6 @@ class Navbar extends StatelessWidget {
                       ),
                     ),
                   ],
-                  
                 ),
               ],
             ),
