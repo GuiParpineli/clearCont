@@ -8,18 +8,18 @@ class Home extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 720) {
-          return Scaffold();
+          return Scaffold(appBar: AppBar(backgroundColor: Colors.black,),);
         } else {
-          return Container(
-            height: 20,
-            width: double.infinity,
-            child: Column(
+          return Scaffold(
+            body: Column(
               children: [
                 Container(
                   color: Colors.black,
                   width: double.infinity,
+                  height: 50,
                   child: Text(
                     'Hello World!',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ],
