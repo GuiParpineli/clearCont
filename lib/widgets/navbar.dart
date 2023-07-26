@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Navbar extends StatelessWidget {
-  const Navbar({super.key});
+  final List<String> menus;
+  const Navbar({super.key, required this.menus});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +19,7 @@ class Navbar extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'LOGO',
-                        style: TextStyle(color: Colors.white),
-                      ),
+                      child: Image.asset('assets/images/logo-white.webp', width: 50,)
                     ),
                     Row(
                       children: [
@@ -51,53 +49,47 @@ class Navbar extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "Menu",
+                        menus[0],
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "Menu",
+                        menus[1],
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "Menu",
+                        menus[2],
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "Menu",
+                        menus[3],
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "Menu",
+                        menus[4],
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "Menu",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Menu",
+                        menus[5],
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ],
+                  
                 ),
               ],
             ),

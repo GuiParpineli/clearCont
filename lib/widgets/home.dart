@@ -6,7 +6,14 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const List<String> listMenu = [];
+    const List<String> listMenu = [
+      'MATRIZ-PLANO DE CONTAS',
+      'CONTROLE',
+      'DASHBOARD',
+      'BALANCETE',
+      'CLIENTES',
+      'FORNECEDORES'
+    ];
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
@@ -17,7 +24,7 @@ class Home extends StatelessWidget {
             ),
           );
         } else {
-          return const Navbar();
+          return const Navbar(menus: listMenu,);
         }
       },
     );
