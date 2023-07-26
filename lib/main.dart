@@ -1,4 +1,4 @@
-import 'package:clearcont/widgets/home.dart';
+import 'package:clearcont/routes/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {

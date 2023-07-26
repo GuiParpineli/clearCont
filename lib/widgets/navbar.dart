@@ -1,3 +1,4 @@
+import 'package:clearcont/widgets/text.dart';
 import 'package:flutter/material.dart';
 
 class Navbar extends StatelessWidget {
@@ -58,50 +59,24 @@ class Navbar extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextSimple(text: menus[0])),
+                    ),
+                    Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          menus[0],
-                          style: const TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
+                        child: TextSimple(text: menus[1])),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        menus[1],
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextSimple(text: menus[2])),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        menus[2],
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextSimple(text: menus[3])),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        menus[3],
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextSimple(text: menus[4])),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        menus[4],
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        menus[5],
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextSimple(text: menus[5])),
                   ],
                 ),
               ],
