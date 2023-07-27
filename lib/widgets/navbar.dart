@@ -1,4 +1,5 @@
 import 'package:clearcont/widgets/text.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Navbar extends StatelessWidget {
@@ -23,26 +24,30 @@ class Navbar extends StatelessWidget {
                         'assets/images/logo-white.webp',
                         width: 50,
                       )),
-                  Row(
-                    children: [
-                      TextButton(
-                          onPressed: () {},
-                          child: Row(
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.person,
-                                  color: Colors.white,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(primary: Colors.black12),
+                            child: Row(
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.person,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "Perfil",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          )),
-                    ],
+                                const Text(
+                                  "Perfil",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            )),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -63,7 +68,9 @@ class Navbar extends StatelessWidget {
                   })),
                   selected: {menus[0]},
                   onSelectionChanged: (value) {
-                    print(value);
+                    if (kDebugMode) {
+                      print(value);
+                    }
                   },
                 ),
               ),

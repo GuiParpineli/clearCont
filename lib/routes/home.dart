@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        if (constraints.maxWidth < 965) {
+        if (constraints.maxWidth < 720) {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.black,

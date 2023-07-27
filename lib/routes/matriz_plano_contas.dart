@@ -18,28 +18,27 @@ class _MatrizState extends State<Matriz> {
         color: Colors.black,
         borderRadius: BorderRadius.circular(15),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+      child:
+         Padding(
+           padding: const EdgeInsets.all(4.0),
+           child: Table(
+            border: TableBorder.all(),
+            children: const [
+              TableRow(
                 children: [
-                  TextSimple(text: "COD. CONTA"),
-                  TextSimple(text: "DESCRIÇÃO"),
-                  TextSimple(text: "TIPO"),
-                  TextSimple(text: "AGRUPAMENTO"),
-                  TextSimple(text: "RESPONSÁVEL"),
-                  TextSimple(text: "DOCUMENTO SUPORTE OBRIGATÓRIO"),
-                  TextSimple(text: "CONTROLA AGIANG?"),
-                  TextSimple(text: "PLANILHA SUPORTE?"),
+                  Center(child: TextSimple(text:'COD. CONTA')),
+                  Center(child: TextSimple(text: 'DESCRIÇÃO')),
+                  Center(child: TextSimple(text: 'TIPO')),
+                  Center(child: TextSimple(text: 'AGRUPAMENTO')),
+                  Center(child: TextSimple(text: 'RESPONSÁVEL')),
+                  Center(child: TextSimple(text: 'DOCUMENTO SUPORTE OBRIGATÓRIO')),
+                  Center(child: TextSimple(text: 'CONTROLA AGIANG?')),
+                  Center(child: TextSimple(text: 'PLANILHA SUPORTE?')),
                 ],
-              )
+              ),
             ],
-          ),
         ),
-      ),
-    );
+         ),
+      );
   }
 }
