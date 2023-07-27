@@ -11,8 +11,7 @@ class Navbar extends StatelessWidget {
     return Column(
       children: [
         Container(
-          color: Color.fromRGBO(30, 30, 30, 10),
-          width: double.infinity,
+          color: Colors.grey,
           child: Column(
             children: [
               Row(
@@ -47,32 +46,26 @@ class Navbar extends StatelessWidget {
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10)),
-                    ),
-                  ),
-                    Center(
-                      child: SegmentedButton<String>(
-                        segments: menus
-                            .map((e) => ButtonSegment<String>(
-                          value: e,
-                          label: Text(e),
-                        ))
-                            .toList(),
-                        selected: {menus[0]},
-                        onSelectionChanged: (value) {
-                          print(value);
-                        },
-                    ),
-                  ),
-                ],
+              Center(
+                child: SegmentedButton<String>(
+                  segments: menus
+                      .map((e) => ButtonSegment<String>(
+                            value: e,
+                            label: TextSimple(text: e),
+                          ))
+                      .toList(),
+                  style: ButtonStyle(backgroundColor:
+                      MaterialStateProperty.resolveWith<Color>((states) {
+                    if (states.contains(MaterialState.selected)) {
+                      return Colors.black;
+                    }
+                    return Colors.grey;
+                  })),
+                  selected: {menus[0]},
+                  onSelectionChanged: (value) {
+                    print(value);
+                  },
+                ),
               ),
             ],
           ),
