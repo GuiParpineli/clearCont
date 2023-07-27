@@ -57,26 +57,21 @@ class Navbar extends StatelessWidget {
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10)),
                     ),
-                    padding: EdgeInsets.all(10),
-                    child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextSimple(text: menus[0])),
                   ),
-                  Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextSimple(text: menus[1])),
-                  Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextSimple(text: menus[2])),
-                  Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextSimple(text: menus[3])),
-                  Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextSimple(text: menus[4])),
-                  Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextSimple(text: menus[5])),
+                    Center(
+                      child: SegmentedButton<String>(
+                        segments: menus
+                            .map((e) => ButtonSegment<String>(
+                          value: e,
+                          label: Text(e),
+                        ))
+                            .toList(),
+                        selected: {menus[0]},
+                        onSelectionChanged: (value) {
+                          print(value);
+                        },
+                    ),
+                  ),
                 ],
               ),
             ],
