@@ -16,7 +16,7 @@ class _MatrizState extends State<Matriz> {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
