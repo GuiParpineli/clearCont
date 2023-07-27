@@ -8,8 +8,7 @@ class Navbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return  Column(
         children: [
           Container(
             color: Colors.black54,
@@ -83,7 +82,6 @@ class Navbar extends StatelessWidget {
             ),
           ),
         ],
-      ),
     );
   }
 }

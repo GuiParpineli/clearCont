@@ -1,3 +1,4 @@
+import 'package:clearcont/routes/matriz_plano_contas.dart';
 import 'package:flutter/material.dart';
 import '../widgets/navbar.dart';
 
@@ -24,7 +25,16 @@ class Home extends StatelessWidget {
             ),
           );
         } else {
-          return const Navbar(menus: listMenu,);
+          return Scaffold(
+            body: Column(
+              children: [
+                Navbar(
+                  menus: listMenu,
+                ),
+                Matriz()
+              ],
+            ),
+          );
         }
       },
     );
