@@ -1,4 +1,8 @@
+import 'package:clearcont/routes/balancete_route.dart';
+import 'package:clearcont/routes/clientes_route.dart';
 import 'package:clearcont/routes/controle_route.dart';
+import 'package:clearcont/routes/dashboard_route.dart';
+import 'package:clearcont/routes/fornecedores_route.dart';
 import 'package:clearcont/routes/home.dart';
 import 'package:clearcont/routes/matriz_route.dart';
 import 'package:clearcont/service/menus_list.dart';
@@ -92,7 +96,6 @@ class _NavBarState extends State<NavBar> {
                               {RouteValue.selectedValue = e}
                           });
                     });
-                    print(RouteValue.selectedValue);
                     // switch (value.toString()) {
                     //   case "{MATRIZ-PLANO DE CONTAS}":
                     //     Navigator.push(
@@ -110,19 +113,27 @@ class _NavBarState extends State<NavBar> {
                   },
                 ),
               ),
-      ],
+            ],
           ),
         ),
-      Container(
-        child: (() {
-          switch (RouteValue.selectedValue.toString()) {
-            case "MATRIZ-PLANO DE CONTAS":
-              return MatrizRoute();
-            case "CONTROLE":
-              return ControleRoute();
-          }
-        })(),
-      )
+        Container(
+          child: (() {
+            switch (RouteValue.selectedValue.toString()) {
+              case "MATRIZ-PLANO DE CONTAS":
+                return MatrizRoute();
+              case "CONTROLE":
+                return ControleRoute();
+              case "DASHBOARD":
+                return DashBoardRoute();
+              case "BALANCETE":
+                return BalanceteRoute();
+              case "CLIENTES":
+                return ClientesRoute();
+              case "FORNECEDORES":
+                return FornecedoresRoute();
+            }
+          })(),
+        )
       ],
     );
   }

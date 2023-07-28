@@ -17,10 +17,11 @@ class _HomeState extends State<Home> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        if (constraints.maxWidth < 720) {
+        if (constraints.maxWidth < 200) {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.black,
