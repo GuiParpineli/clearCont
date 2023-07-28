@@ -1,14 +1,14 @@
 import 'package:clearcont/widgets/text.dart';
 import 'package:flutter/material.dart';
 
-class Matriz extends StatefulWidget {
-  const Matriz({super.key});
+class MatrizRoute extends StatefulWidget {
+  const MatrizRoute({super.key});
 
   @override
-  State<Matriz> createState() => _MatrizState();
+  State<MatrizRoute> createState() => _MatrizRouteState();
 }
 
-class _MatrizState extends State<Matriz> {
+class _MatrizRouteState extends State<MatrizRoute> {
   @override
   Widget build(BuildContext context) {
     return Container(

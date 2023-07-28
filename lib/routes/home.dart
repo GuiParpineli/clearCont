@@ -1,21 +1,23 @@
-import 'package:clearcont/routes/matriz_plano_contas.dart';
+import 'package:clearcont/routes/controle_route.dart';
+import 'package:clearcont/service/select_value.dart';
 import 'package:flutter/material.dart';
+import 'package:clearcont/routes/matriz_route.dart';
 import '../widgets/navbar.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    const List<String> listMenu = [
-      'MATRIZ-PLANO DE CONTAS',
-      'CONTROLE',
-      'DASHBOARD',
-      'BALANCETE',
-      'CLIENTES',
-      'FORNECEDORES'
-    ];
+  State<Home> createState() => _HomeState();
+}
 
+class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 720) {
@@ -26,12 +28,9 @@ class Home extends StatelessWidget {
           );
         } else {
           return Scaffold(
-            body: Column(
-              children: [
-                Navbar(
-                  menus: listMenu,
-                ),
-                Matriz()
+            body: ListView(
+              children: const [
+                NavBar(),
               ],
             ),
           );

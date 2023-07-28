@@ -1,11 +1,24 @@
+import 'package:clearcont/routes/controle_route.dart';
+import 'package:clearcont/routes/home.dart';
+import 'package:clearcont/routes/matriz_route.dart';
+import 'package:clearcont/service/menus_list.dart';
+import 'package:clearcont/service/select_value.dart';
 import 'package:clearcont/widgets/text.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Navbar extends StatelessWidget {
-  final List<String> menus;
+class NavBar extends StatefulWidget {
+  const NavBar({super.key});
 
-  const Navbar({super.key, required this.menus});
+  @override
+  State<NavBar> createState() => _NavBarState();
+}
+
+class _NavBarState extends State<NavBar> {
+  @override
+  void initState() {
+    RouteValue.selectedValue = "";
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +43,8 @@ class Navbar extends StatelessWidget {
                       children: [
                         ElevatedButton(
                             onPressed: () {},
-                            style: ElevatedButton.styleFrom(primary: Colors.black12),
+                            style: ElevatedButton.styleFrom(
+                                primary: Colors.black12),
                             child: Row(
                               children: [
                                 IconButton(
@@ -53,7 +67,7 @@ class Navbar extends StatelessWidget {
               ),
               Center(
                 child: SegmentedButton<String>(
-                  segments: menus
+                  segments: LISTMENU
                       .map((e) => ButtonSegment<String>(
                             value: e,
                             label: TextSimple(text: e),
@@ -66,17 +80,49 @@ class Navbar extends StatelessWidget {
                     }
                     return Colors.grey;
                   })),
-                  selected: {menus[0]},
+                  selected: {RouteValue.selectedValue},
                   onSelectionChanged: (value) {
-                    if (kDebugMode) {
-                      print(value);
-                    }
+                    setState(() {
+                      LISTMENU.forEach((e) => {
+                            if (e ==
+                                value
+                                    .toString()
+                                    .replaceAll('{', '')
+                                    .replaceAll('}', ''))
+                              {RouteValue.selectedValue = e}
+                          });
+                    });
+                    print(RouteValue.selectedValue);
+                    // switch (value.toString()) {
+                    //   case "{MATRIZ-PLANO DE CONTAS}":
+                    //     Navigator.push(
+                    //         (context),
+                    //         MaterialPageRoute(
+                    //             builder: (context) => const MatrizRoute()));
+                    //     break;
+                    //   case "{CONTROLE}":
+                    //     Navigator.push(
+                    //         (context),
+                    //         MaterialPageRoute(
+                    //             builder: (context) => const ControleRoute()));
+                    //     break;
+                    // }
                   },
                 ),
               ),
-            ],
+      ],
           ),
         ),
+      Container(
+        child: (() {
+          switch (RouteValue.selectedValue.toString()) {
+            case "MATRIZ-PLANO DE CONTAS":
+              return MatrizRoute();
+            case "CONTROLE":
+              return ControleRoute();
+          }
+        })(),
+      )
       ],
     );
   }

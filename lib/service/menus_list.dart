@@ -1,0 +1,8 @@
+const List<String> LISTMENU = [
+  'MATRIZ-PLANO DE CONTAS',
+  'CONTROLE',
+  'DASHBOARD',
+  'BALANCETE',
+  'CLIENTES',
+  'FORNECEDORES'
+];
