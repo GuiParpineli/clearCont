@@ -18,24 +18,18 @@ class ControleRoute extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            Wrap(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Image.asset(
-                    'assets/images/logo-white.webp',
-                    width: 50,
-                  ),
-                ),
-              ],
+            Image.asset(
+              'assets/images/logo-white.webp',
+              height: 80,
+              alignment: Alignment.center,
             ),
-            Container(
+            const SizedBox(
                 width: 100,
                 height: 100,
                 child: VerticalDivider(
                   color: Colors.white,
                 )),
-            Expanded(
+            const Expanded(
               child: Wrap(
                 children: [
                   Column(
@@ -76,10 +70,10 @@ class ControleRoute extends StatelessWidget {
             Container(
                 width: 100,
                 height: 100,
-                child: VerticalDivider(
+                child: const VerticalDivider(
                   color: Colors.white,
                 )),
-            Expanded(
+            const Expanded(
               child: Card(
                 color: Colors.black,
                 child: Column(
@@ -126,13 +120,13 @@ class ControleRoute extends StatelessWidget {
             Container(
                 width: 100,
                 height: 100,
-                child: VerticalDivider(
+                child: const VerticalDivider(
                   color: Colors.white,
                 )),
-            Expanded(
+            const Expanded(
               child: Card(
                 color: Colors.black,
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.all(18.0),
                   child: Column(
                     children: [

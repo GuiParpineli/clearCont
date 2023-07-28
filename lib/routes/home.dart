@@ -28,12 +28,9 @@ class _HomeState extends State<Home> {
             ),
           );
         } else {
-          return Scaffold(
-            body: ListView(
-              children: const [
+          return const Scaffold(
+            body:
                 NavBar(),
-              ],
-            ),
           );
         }
       },
