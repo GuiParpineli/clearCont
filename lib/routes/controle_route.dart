@@ -1,5 +1,3 @@
-import 'package:clearcont/service/menus_list.dart';
-import 'package:clearcont/widgets/navbar.dart';
 import 'package:clearcont/widgets/text.dart';
 import 'package:flutter/material.dart';
 
@@ -18,13 +16,16 @@ class ControleRoute extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            Image.asset(
-              'assets/images/logo-white.webp',
-              height: 80,
-              alignment: Alignment.center,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                'assets/images/logo-white.webp',
+                height: 80,
+                alignment: Alignment.center,
+              ),
             ),
             const SizedBox(
-                width: 100,
+                width: 10,
                 height: 100,
                 child: VerticalDivider(
                   color: Colors.white,
@@ -68,7 +69,7 @@ class ControleRoute extends StatelessWidget {
               ),
             ),
             Container(
-                width: 100,
+                width: 10,
                 height: 100,
                 child: const VerticalDivider(
                   color: Colors.white,
@@ -117,10 +118,10 @@ class ControleRoute extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-                width: 100,
+            const SizedBox(
+                width: 10,
                 height: 100,
-                child: const VerticalDivider(
+                child: VerticalDivider(
                   color: Colors.white,
                 )),
             const Expanded(
