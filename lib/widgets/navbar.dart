@@ -48,7 +48,7 @@ class _NavBarState extends State<NavBar> {
                         ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                                primary: Colors.black12),
+                                backgroundColor: Colors.black12),
                             child: Row(
                               children: [
                                 IconButton(
@@ -96,20 +96,6 @@ class _NavBarState extends State<NavBar> {
                               {RouteValue.selectedValue = e}
                           });
                     });
-                    // switch (value.toString()) {
-                    //   case "{MATRIZ-PLANO DE CONTAS}":
-                    //     Navigator.push(
-                    //         (context),
-                    //         MaterialPageRoute(
-                    //             builder: (context) => const MatrizRoute()));
-                    //     break;
-                    //   case "{CONTROLE}":
-                    //     Navigator.push(
-                    //         (context),
-                    //         MaterialPageRoute(
-                    //             builder: (context) => const ControleRoute()));
-                    //     break;
-                    // }
                   },
                 ),
               ),
