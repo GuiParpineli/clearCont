@@ -63,6 +63,7 @@ class _MatrizRouteState extends State<MatrizRoute> {
               ],
             ),
             TableRow(
+              decoration: BoxDecoration(color: Color.fromRGBO( 1, 1, 1, 1000), borderRadius: BorderRadius.circular(20)),
               children: [
                 Center(child: Text("text")),
                 Center(child: Text("text")),
@@ -75,6 +76,7 @@ class _MatrizRouteState extends State<MatrizRoute> {
               ],
             ),
             TableRow(
+              decoration: BoxDecoration(color: Color.fromRGBO( 1, 1, 1, 1000), borderRadius: BorderRadius.circular(20)),
               children: [
                 Center(child: Text("text")),
                 Center(child: Text("text")),
@@ -87,6 +89,7 @@ class _MatrizRouteState extends State<MatrizRoute> {
               ],
             ),
             TableRow(
+              decoration: BoxDecoration(color: Color.fromRGBO( 1, 1, 1, 1000), borderRadius: BorderRadius.circular(20)),
               children: [
                 Center(child: Text("text")),
                 Center(child: Text("text")),
