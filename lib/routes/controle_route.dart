@@ -158,18 +158,19 @@ class ControleRoute extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.black,
               borderRadius: BorderRadius.circular(15),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Table(
-                border: TableBorder.all(),
-                children: const [
+            child: Table(
+                border: TableBorder(
+                    horizontalInside: BorderSide(
+                        width: 1, color: Colors.white, style: BorderStyle.solid)),
+                children:  [
                   TableRow(
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                     children: [
                       Center(child: TextSimple(text: 'CONTA RAZÃO')),
                       Center(child: TextSimple(text: 'NOME DA CONTA')),
@@ -186,9 +187,57 @@ class ControleRoute extends StatelessWidget {
                           child: TextSimple(text: 'AGING LIST DA PENDÊNCIA')),
                     ],
                   ),
+                  TableRow(
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(1, 1, 1, 1000),
+                        borderRadius: BorderRadius.circular(20)),
+                    children: [
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                    ],
+                  ),  TableRow(
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(1, 1, 1, 1000),
+                        borderRadius: BorderRadius.circular(20)),
+                    children: [
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                    ],
+                  ),  TableRow(
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(1, 1, 1, 1000),
+                        borderRadius: BorderRadius.circular(20)),
+                    children: [
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                      Center(child: Text("text")),
+                    ],
+                  ),
                 ],
               ),
-            ),
           ),
         )
       ],
