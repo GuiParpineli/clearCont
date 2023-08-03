@@ -33,7 +33,7 @@ class _ConciliacaoContState extends State<ConciliacaoCont> {
           ),
           Row(
             children: [
-             CardDocumentsAttached(),
+              CardDocumentsAttached(),
               Card(),
             ],
           ),
