@@ -11,116 +11,147 @@ import 'package:clearcont/widgets/text.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+  final Container page;
+
+  const NavBar({super.key, required this.page});
 
   @override
   State<NavBar> createState() => _NavBarState();
 }
 
 class _NavBarState extends State<NavBar> {
+  final String selectedValue = RouteValue.selectedValue.toString();
   @override
   void initState() {
     RouteValue.selectedValue = "";
+    MenuValue.selectedValue = 0;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          color: Colors.grey,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              color: Colors.grey,
+              child: Column(
                 children: [
-                  Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'assets/images/logo-white.webp',
-                        width: 50,
-                      )),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black12),
-                            child: Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.person,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                const Text(
-                                  "Perfil",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            )),
-                      ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(
+                            'assets/images/logo-white.webp',
+                            width: 50,
+                          )),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.black12),
+                                child: Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        Icons.person,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    const Text(
+                                      "Perfil",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                )),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Center(
+                    child: SegmentedButton<String>(
+                      segments: LISTMENU
+                          .map((e) => ButtonSegment<String>(
+                                value: e,
+                                label: TextSimple(text: e),
+                              ))
+                          .toList(),
+                      style: ButtonStyle(backgroundColor:
+                          MaterialStateProperty.resolveWith<Color>((states) {
+                        if (states.contains(MaterialState.selected)) {
+                          return Colors.black;
+                        }
+                        return Colors.grey;
+                      })),
+                      selected: {selectedValue},
+                      onSelectionChanged: (value) {
+                        setState(() {
+                          LISTMENU.forEach((e) => {
+                                if (e ==
+                                    value
+                                        .toString()
+                                        .replaceAll('{', '')
+                                        .replaceAll('}', ''))
+                                  {RouteValue.selectedValue = e}
+                              });
+                          print(RouteValue.selectedValue);
+                          print(LISTMENU.indexWhere(
+                              (e) => e == RouteValue.selectedValue));
+
+                          switch (RouteValue.selectedValue.toString()) {
+                            case "MATRIZ-PLANO DE CONTAS":
+                              Navigator.pushNamed(context, '/matriz');
+                            case "CONTROLE":
+                              Navigator.pushNamed(context, '/controle');
+                            case "DASHBOARD":
+                              Navigator.pushNamed(context, '/dashboard');
+                            case "BALANCETE":
+                              Navigator.pushNamed(context, '/balancete');
+                            case "CLIENTES":
+                              Navigator.pushNamed(context, '/clientes');
+                            case "FORNECEDORES":
+                              Navigator.pushNamed(context, '/fornecedores');
+                            default:
+                              Navigator.pushNamed(context, '/');
+                          }
+                        });
+                      },
                     ),
                   ),
                 ],
               ),
-              Center(
-                child: SegmentedButton<String>(
-                  segments: LISTMENU
-                      .map((e) => ButtonSegment<String>(
-                            value: e,
-                            label: TextSimple(text: e),
-                          ))
-                      .toList(),
-                  style: ButtonStyle(backgroundColor:
-                      MaterialStateProperty.resolveWith<Color>((states) {
-                    if (states.contains(MaterialState.selected)) {
-                      return Colors.black;
-                    }
-                    return Colors.grey;
-                  })),
-                  selected: {RouteValue.selectedValue},
-                  onSelectionChanged: (value) {
-                    setState(() {
-                      LISTMENU.forEach((e) => {
-                            if (e ==
-                                value
-                                    .toString()
-                                    .replaceAll('{', '')
-                                    .replaceAll('}', ''))
-                              {RouteValue.selectedValue = e}
-                          });
-                    });
-                  },
-                ),
-              ),
-            ],
-          ),
+            ),
+            widget.page,
+            // Container(
+            //   child: (() {
+            //     switch (RouteValue.selectedValue.toString()) {
+            //       case "MATRIZ-PLANO DE CONTAS":
+            //         return MatrizRoute();
+            //       case "CONTROLE":
+            //         return ControleRoute();
+            //       case "DASHBOARD":
+            //         return DashBoardRoute();
+            //       case "BALANCETE":
+            //         return BalanceteRoute();
+            //       case "CLIENTES":
+            //         return ClientesRoute();
+            //       case "FORNECEDORES":
+            //         return FornecedoresRoute();
+            //       default:
+            //         return Container();
+            //     }
+            //   })(),
+            // )
+          ],
         ),
-        Container(
-          child: (() {
-            switch (RouteValue.selectedValue.toString()) {
-              case "MATRIZ-PLANO DE CONTAS":
-                return MatrizRoute();
-              case "CONTROLE":
-                return ControleRoute();
-              case "DASHBOARD":
-                return DashBoardRoute();
-              case "BALANCETE":
-                return BalanceteRoute();
-              case "CLIENTES":
-                return ClientesRoute();
-              case "FORNECEDORES":
-                return FornecedoresRoute();
-            }
-          })(),
-        )
-      ],
+      ),
     );
   }
 }
