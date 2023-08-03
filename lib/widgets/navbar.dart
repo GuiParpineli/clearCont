@@ -11,7 +11,7 @@ import 'package:clearcont/widgets/text.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatefulWidget {
-  final Container page;
+  final Widget page;
 
   const NavBar({super.key, required this.page});
 
@@ -21,14 +21,16 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   final String selectedValue = RouteValue.selectedValue.toString();
+
   @override
   void initState() {
     RouteValue.selectedValue = "";
-    MenuValue.selectedValue = 0;
     super.initState();
   }
 
   @override
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -77,10 +79,21 @@ class _NavBarState extends State<NavBar> {
                   ),
                   Center(
                     child: SegmentedButton<String>(
-                      segments: LISTMENU
+                      segments: MenuList.LISTMENU.keys
                           .map((e) => ButtonSegment<String>(
                                 value: e,
-                                label: TextSimple(text: e),
+                                label: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(4.0),
+                                        child: Icon(MenuList.LISTMENU[e], color: Colors.white,),
+                                      ),
+                                      TextSimple(text: e),
+                                    ],
+                                  ),
+                                ),
                               ))
                           .toList(),
                       style: ButtonStyle(backgroundColor:
@@ -93,7 +106,7 @@ class _NavBarState extends State<NavBar> {
                       selected: {selectedValue},
                       onSelectionChanged: (value) {
                         setState(() {
-                          LISTMENU.forEach((e) => {
+                          MenuList.LISTMENU.keys.forEach((e) => {
                                 if (e ==
                                     value
                                         .toString()
@@ -102,8 +115,6 @@ class _NavBarState extends State<NavBar> {
                                   {RouteValue.selectedValue = e}
                               });
                           print(RouteValue.selectedValue);
-                          print(LISTMENU.indexWhere(
-                              (e) => e == RouteValue.selectedValue));
 
                           switch (RouteValue.selectedValue.toString()) {
                             case "MATRIZ-PLANO DE CONTAS":

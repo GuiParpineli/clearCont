@@ -18,6 +18,8 @@ class _ConciliacaoContState extends State<ConciliacaoCont> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return NavBar(
+      page: Text("HEllo world"),
+    );
   }
 }

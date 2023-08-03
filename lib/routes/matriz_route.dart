@@ -79,14 +79,8 @@ class _MatrizRouteState extends State<MatrizRoute> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pop(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  ConciliacaoCont(),
-                            ),
-                          );
-                          RouteValue.selectedValue = "";
+                          Navigator.pushNamed(context, '/conciliacao');
+                          RouteValue.selectedValue = "/conciliacao";
                         },
                         child: Center(child: Text("text")),
                       ),

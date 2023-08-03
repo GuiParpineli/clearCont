@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:clearcont/routes/balancete_route.dart';
 import 'package:clearcont/routes/clientes_route.dart';
+import 'package:clearcont/routes/conciliacao_cont.dart';
 import 'package:clearcont/routes/controle_route.dart';
 import 'package:clearcont/routes/dashboard_route.dart';
 import 'package:clearcont/routes/fornecedores_route.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/balancete': (context) => BalanceteRoute(),
         '/clientes': (context) => ClientesRoute(),
         '/fornecedores': (context) => FornecedoresRoute(),
+        '/conciliacao': (context) => ConciliacaoCont(),
       },
     );
   }
