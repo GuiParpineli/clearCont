@@ -12,6 +12,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  DateTime _dateTime = DateTime.now();
+
   @override
   void initState() {
     super.initState();
@@ -28,8 +30,46 @@ class _HomeState extends State<Home> {
             ),
           );
         } else {
-          return
-            NavBar(page: Container(),);
+          return NavBar(
+            page: Center(
+              child: Column(
+                children: [
+                  Text(
+                    "Sistema de Conciliação Contabil",
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Image.asset(
+                    'assets/images/logo-black.webp',
+                    height: 200,
+                  ),
+                  Text("Selecione o Periodo"),
+                  Text(
+                    'Data selecionada: ${_dateTime.day}/${_dateTime.month}/${_dateTime.year}',
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.black,
+                    ),
+                    child: Text('Selecionar data'),
+                    onPressed: () async {
+                      final DateTime? picked = await showDatePicker(
+                        context: context,
+                        initialDate: _dateTime,
+                        firstDate: DateTime(1900),
+                        lastDate: DateTime(2100),
+                      );
+                      if (picked != null && picked != _dateTime) {
+                        setState(() {
+                          _dateTime = picked;
+                        });
+                      }
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
         }
       },
     );

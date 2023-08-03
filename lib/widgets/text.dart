@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TextSimple extends StatelessWidget {
   final String text;
@@ -9,7 +10,7 @@ class TextSimple extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(color: Colors.white),
+      style: GoogleFonts.inter(color: Colors.white),
     );
   }
 }

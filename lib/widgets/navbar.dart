@@ -1,10 +1,3 @@
-import 'package:clearcont/routes/balancete_route.dart';
-import 'package:clearcont/routes/clientes_route.dart';
-import 'package:clearcont/routes/controle_route.dart';
-import 'package:clearcont/routes/dashboard_route.dart';
-import 'package:clearcont/routes/fornecedores_route.dart';
-import 'package:clearcont/routes/home.dart';
-import 'package:clearcont/routes/matriz_route.dart';
 import 'package:clearcont/service/menus_list.dart';
 import 'package:clearcont/service/select_value.dart';
 import 'package:clearcont/widgets/text.dart';
@@ -24,13 +17,11 @@ class _NavBarState extends State<NavBar> {
 
   @override
   void initState() {
-    RouteValue.selectedValue = "";
+    RouteValue.selectedValue = "HOME";
     super.initState();
   }
 
   @override
-
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -43,12 +34,17 @@ class _NavBarState extends State<NavBar> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Image.asset(
-                            'assets/images/logo-white.webp',
-                            width: 50,
-                          )),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/');
+                        },
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.asset(
+                              'assets/images/logo-white.webp',
+                              width: 50,
+                            )),
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
@@ -80,24 +76,28 @@ class _NavBarState extends State<NavBar> {
                   Center(
                     child: SegmentedButton<String>(
                       segments: MenuList.LISTMENU.keys
-                          .map((e) => ButtonSegment<String>(
-                                value: e,
-                                label: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(4.0),
-                                        child: Icon(MenuList.LISTMENU[e], color: Colors.white,),
-                                      ),
-                                      TextSimple(text: e),
-                                    ],
+                          .map((e) =>
+                          ButtonSegment<String>(
+                            value: e,
+                            label: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Icon(
+                                      MenuList.LISTMENU[e],
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                              ))
+                                  TextSimple(text: e),
+                                ],
+                              ),
+                            ),
+                          ))
                           .toList(),
                       style: ButtonStyle(backgroundColor:
-                          MaterialStateProperty.resolveWith<Color>((states) {
+                      MaterialStateProperty.resolveWith<Color>((states) {
                         if (states.contains(MaterialState.selected)) {
                           return Colors.black;
                         }
@@ -106,17 +106,20 @@ class _NavBarState extends State<NavBar> {
                       selected: {selectedValue},
                       onSelectionChanged: (value) {
                         setState(() {
-                          MenuList.LISTMENU.keys.forEach((e) => {
-                                if (e ==
-                                    value
-                                        .toString()
-                                        .replaceAll('{', '')
-                                        .replaceAll('}', ''))
-                                  {RouteValue.selectedValue = e}
-                              });
+                          MenuList.LISTMENU.keys.forEach((e) =>
+                          {
+                            if (e ==
+                                value
+                                    .toString()
+                                    .replaceAll('{', '')
+                                    .replaceAll('}', ''))
+                              {RouteValue.selectedValue = e}
+                          });
                           print(RouteValue.selectedValue);
 
                           switch (RouteValue.selectedValue.toString()) {
+                            case "HOME":
+                              Navigator.pushNamed(context, '/');
                             case "MATRIZ-PLANO DE CONTAS":
                               Navigator.pushNamed(context, '/matriz');
                             case "CONTROLE":

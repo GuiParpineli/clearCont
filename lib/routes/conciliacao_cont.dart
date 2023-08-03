@@ -1,6 +1,8 @@
 import 'package:clearcont/service/select_value.dart';
+import 'package:clearcont/widgets/card_documentos_anexados.dart';
 import 'package:clearcont/widgets/navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ConciliacaoCont extends StatefulWidget {
   const ConciliacaoCont({super.key});
@@ -19,7 +21,30 @@ class _ConciliacaoContState extends State<ConciliacaoCont> {
   @override
   Widget build(BuildContext context) {
     return NavBar(
-      page: Text("HEllo world"),
+      page: Column(
+        children: [
+          Center(
+            child: Text(
+              "Conciliação Contábil",
+              style: GoogleFonts.inter(
+                  textStyle: TextStyle(fontWeight: FontWeight.w900),
+                  fontSize: 30),
+            ),
+          ),
+          Row(
+            children: [
+             CardDocumentsAttached(),
+              Card(),
+            ],
+          ),
+          Row(
+            children: [Card()],
+          ),
+          Row(
+            children: [Card()],
+          )
+        ],
+      ),
     );
   }
 }

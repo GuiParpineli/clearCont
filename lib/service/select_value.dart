@@ -1,3 +1,3 @@
 class RouteValue {
-  static var selectedValue = "";
+  static var selectedValue = "HOME";
 }
