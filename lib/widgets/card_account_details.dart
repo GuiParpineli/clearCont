@@ -9,7 +9,7 @@ class CardAccountDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: EdgeInsets.all(18.0),
         child: Column(
           children: [
             Padding(

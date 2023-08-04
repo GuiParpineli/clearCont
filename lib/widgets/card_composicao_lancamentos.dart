@@ -96,13 +96,21 @@ class CardComposicaoLanc extends StatelessWidget {
                       BoxDecoration(borderRadius: BorderRadius.circular(20)),
                   children: [
                     Container(
-                        height: 50, child: const Center(child: Text("text"))),
+                      height: 50,
+                      child: const Center(child: Text("text")),
+                    ),
                     Container(
-                        height: 50, child: const Center(child: Text("text"))),
+                      height: 50,
+                      child: const Center(child: Text("text")),
+                    ),
                     Container(
-                        height: 50, child: const Center(child: Text("text"))),
+                      height: 50,
+                      child: const Center(child: Text("text")),
+                    ),
                     Container(
-                        height: 50, child: const Center(child: Text("text"))),
+                      height: 50,
+                      child: const Center(child: Text("text")),
+                    ),
                   ],
                 ),
                 TableRow(
