@@ -1,4 +1,5 @@
 import 'package:clearcont/routes/conciliacao_cont.dart';
+import 'package:clearcont/service/select_value.dart';
 import 'package:clearcont/widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -366,6 +367,7 @@ class _MatrizTableState extends State<MatrizTable> {
                 ),
                 TableRowInkWell(
                   onTap: () {
+                    RouteValue.selectedValue = "/conciliacao";
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -386,6 +388,7 @@ class _MatrizTableState extends State<MatrizTable> {
                 ),
                 TableRowInkWell(
                   onTap: () {
+                    RouteValue.selectedValue = "/conciliacao";
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -406,6 +409,7 @@ class _MatrizTableState extends State<MatrizTable> {
                 ),
                 TableRowInkWell(
                   onTap: () {
+                    RouteValue.selectedValue = "/conciliacao";
                     Navigator.push(
                         context,
                         MaterialPageRoute(
