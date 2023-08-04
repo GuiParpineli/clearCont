@@ -1,3 +1,4 @@
+import 'package:clearcont/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
 class DashBoardRoute extends StatelessWidget {
@@ -5,6 +6,8 @@ class DashBoardRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return NavBar(
+      page: Container(),
+    );
   }
 }

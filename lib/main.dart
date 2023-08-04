@@ -9,9 +9,13 @@ import 'package:clearcont/routes/fornecedores_route.dart';
 import 'package:clearcont/routes/home.dart';
 import 'package:clearcont/routes/matriz_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft])
+      .then((_) => runApp(const MyApp()));
+
 }
 
 class MyApp extends StatelessWidget {
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
         },
       ),
       title: 'Flutter Demo',
-      theme: ThemeData(colorSchemeSeed: Colors.grey, useMaterial3: true),
+      theme: ThemeData(colorSchemeSeed: Colors.blueGrey, useMaterial3: true),
       initialRoute: '/',
       routes: {
         '/': (context) => const Home(),

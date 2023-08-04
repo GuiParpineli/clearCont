@@ -29,8 +29,7 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
                           textAlign: TextAlign.left,
                           style: GoogleFonts.inter(
                               textStyle: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20)),
+                                  fontWeight: FontWeight.bold, fontSize: 20)),
                         )
                       ],
                     ),
@@ -112,8 +111,14 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
                   Container(
                     child: Row(
                       children: [
-                        Icon(Icons.upload),
-                        Text("Anexar Documento")
+                        TextButton(
+                            onPressed: () {},
+                            child: Row(
+                              children: [
+                                Icon(Icons.upload),
+                                Text("Anexar Documento")
+                              ],
+                            ))
                       ],
                     ),
                   )

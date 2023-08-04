@@ -28,7 +28,7 @@ class _NavBarState extends State<NavBar> {
         child: Column(
           children: [
             Container(
-              color: Colors.grey,
+              color: Colors.grey[800],
               child: Column(
                 children: [
                   Row(
@@ -39,10 +39,10 @@ class _NavBarState extends State<NavBar> {
                           Navigator.pushNamed(context, '/');
                         },
                         child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(18.0),
                             child: Image.asset(
                               'assets/images/logo-white.webp',
-                              width: 50,
+                              width: 80,
                             )),
                       ),
                       Padding(
@@ -52,7 +52,7 @@ class _NavBarState extends State<NavBar> {
                             ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.black12),
+                                    backgroundColor: Colors.black),
                                 child: Row(
                                   children: [
                                     IconButton(
@@ -76,46 +76,43 @@ class _NavBarState extends State<NavBar> {
                   Center(
                     child: SegmentedButton<String>(
                       segments: MenuList.LISTMENU.keys
-                          .map((e) =>
-                          ButtonSegment<String>(
-                            value: e,
-                            label: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: Icon(
-                                      MenuList.LISTMENU[e],
-                                      color: Colors.white,
-                                    ),
+                          .map((e) => ButtonSegment<String>(
+                                value: e,
+                                label: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(4.0),
+                                        child: Icon(
+                                          MenuList.LISTMENU[e],
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      TextSimple(text: e),
+                                    ],
                                   ),
-                                  TextSimple(text: e),
-                                ],
-                              ),
-                            ),
-                          ))
+                                ),
+                              ))
                           .toList(),
                       style: ButtonStyle(backgroundColor:
-                      MaterialStateProperty.resolveWith<Color>((states) {
+                          MaterialStateProperty.resolveWith<Color>((states) {
                         if (states.contains(MaterialState.selected)) {
                           return Colors.black;
                         }
-                        return Colors.grey;
+                        return Colors.grey[800]!;
                       })),
                       selected: {selectedValue},
                       onSelectionChanged: (value) {
                         setState(() {
-                          MenuList.LISTMENU.keys.forEach((e) =>
-                          {
-                            if (e ==
-                                value
-                                    .toString()
-                                    .replaceAll('{', '')
-                                    .replaceAll('}', ''))
-                              {RouteValue.selectedValue = e}
-                          });
-                          print(RouteValue.selectedValue);
+                          MenuList.LISTMENU.keys.forEach((e) => {
+                                if (e ==
+                                    value
+                                        .toString()
+                                        .replaceAll('{', '')
+                                        .replaceAll('}', ''))
+                                  {RouteValue.selectedValue = e}
+                              });
 
                           switch (RouteValue.selectedValue.toString()) {
                             case "HOME":
