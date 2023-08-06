@@ -8,6 +8,7 @@ import 'package:clearcont/routes/dashboard_route.dart';
 import 'package:clearcont/routes/fornecedores_route.dart';
 import 'package:clearcont/routes/home.dart';
 import 'package:clearcont/routes/matriz_route.dart';
+import 'package:clearcont/routes/perfil_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
         '/clientes': (context) => ClientesRoute(),
         '/fornecedores': (context) => FornecedoresRoute(),
         '/conciliacao': (context) => ConciliacaoCont(),
+        '/perfil': (context) => PerfilRoute(),
       },
     );
   }

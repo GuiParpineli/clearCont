@@ -29,7 +29,7 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
                           "Documentos Anexados",
                           textAlign: TextAlign.left,
                           style: GoogleFonts.inter(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20)),
                         )
                       ],
@@ -43,8 +43,8 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(
                                   Icons.picture_as_pdf,
                                   size: 40,
@@ -56,7 +56,7 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
                                   backgroundColor: Colors.black,
                                 ),
                                 onPressed: () {},
-                                child: Text("Baixar"),
+                                child: const Text("Baixar"),
                               )
                             ],
                           ),
@@ -65,8 +65,8 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(
                                   Icons.picture_as_pdf,
                                   size: 40,
@@ -78,7 +78,7 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
                                   backgroundColor: Colors.black,
                                 ),
                                 onPressed: () {},
-                                child: Text("Baixar"),
+                                child: const Text("Baixar"),
                               )
                             ],
                           ),
@@ -87,8 +87,8 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(
                                   Icons.picture_as_pdf,
                                   size: 40,
@@ -100,7 +100,7 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
                                   backgroundColor: Colors.black,
                                 ),
                                 onPressed: () {},
-                                child: Text("Baixar"),
+                                child: const Text("Baixar"),
                               )
                             ],
                           ),
@@ -108,20 +108,18 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
                       ],
                     ),
                   ),
-                  Text("Documentos Aceitos: PDF, DOC e XLS"),
-                  Container(
-                    child: Row(
-                      children: [
-                        TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.upload),
-                                Text("Anexar Documento")
-                              ],
-                            ))
-                      ],
-                    ),
+                  const Text("Documentos Aceitos: PDF, DOC e XLS"),
+                  Row(
+                    children: [
+                      TextButton(
+                          onPressed: () {},
+                          child: const Row(
+                            children: [
+                              Icon(Icons.upload),
+                              Text("Anexar Documento")
+                            ],
+                          ))
+                    ],
                   )
                 ],
               ),
