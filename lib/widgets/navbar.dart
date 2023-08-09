@@ -50,13 +50,17 @@ class _NavBarState extends State<NavBar> {
                         child: Row(
                           children: [
                             ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/perfil');
+                                },
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.black),
                                 child: Row(
                                   children: [
                                     IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.pushNamed(context, '/perfil');
+                                      },
                                       icon: const Icon(
                                         Icons.person,
                                         color: Colors.white,

@@ -1,3 +1,4 @@
+import 'package:clearcont/service/select_value.dart';
 import 'package:clearcont/widgets/navbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,121 +11,69 @@ class PerfilRoute extends StatefulWidget {
   State<PerfilRoute> createState() => _PerfilRouteState();
 }
 
-class _PerfilRouteState extends State<PerfilRoute> {
+class _PerfilRouteState extends State<PerfilRoute>
+    with TickerProviderStateMixin {
+  late final TabController _tabController;
+
+  @override
+  void initState() {
+    RouteValue.selectedValue = " ";
+    _tabController = TabController(length: 3, vsync: this);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return NavBar(
-        page: Column(
-      children: [
-        Card(
-          margin: EdgeInsets.symmetric(horizontal: 20),
-          color: Colors.black,
-          child: Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.black,
-                  ),
-                  onPressed: () {},
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.person,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Perfil",
-                        style: GoogleFonts.inter(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white,
-                      backgroundColor: Colors.black,
-                    ),
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.logout,
-                          color: Colors.white,
-                        ),
-                        Text(
-                          "Sair",
-                          style: GoogleFonts.inter(color: Colors.white),
-                        )
-                      ],
-                    )),
-              ],
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text(
+          'Perfil',
+          style: GoogleFonts.inter(color: Colors.white),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.close,
+            color: Colors.white,
           ),
         ),
-        Card(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TextButton(
-                  onPressed: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.logout,
-                        ),
-                        Text(
-                          "Sair",
-                          style: GoogleFonts.inter(),
-                        )
-                      ],
-                    ),
-                  )),
-              Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                child: TextButton(
-                    onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.logout,
-                          ),
-                          Text(
-                            "Sair",
-                            style: GoogleFonts.inter(),
-                          )
-                        ],
-                      ),
-                    )),
-              ),
-              TextButton(
-                  onPressed: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.logout,
-                        ),
-                        Text(
-                          "Sair",
-                          style: GoogleFonts.inter(),
-                        )
-                      ],
-                    ),
-                  )),
-            ],
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: [
+            Tab(
+              text: "Infomações da conta",
+              icon: Icon(Icons.info),
+            ),
+            Tab(
+              text: "Segurança da conta",
+              icon: Icon(Icons.security),
+            ),
+            Tab(
+              text: "Notificações",
+              icon: Icon(Icons.notifications),
+            ),
+          ],
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.grey,
+        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: const <Widget>[
+          Center(
+            child: Text("It's cloudy here"),
           ),
-        )
-      ],
-    ));
+          Center(
+            child: Text("It's rainy here"),
+          ),
+          Center(
+            child: Text("It's sunny here"),
+          ),
+        ],
+      ),
+    );
   }
 }
