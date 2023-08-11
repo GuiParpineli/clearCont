@@ -7,7 +7,6 @@ import 'package:clearcont/routes/controle_route.dart';
 import 'package:clearcont/routes/dashboard_route.dart';
 import 'package:clearcont/routes/fornecedores_route.dart';
 import 'package:clearcont/routes/home.dart';
-import 'package:clearcont/routes/matriz_route.dart';
 import 'package:clearcont/routes/perfil_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -45,7 +44,6 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const Home(),
-        '/matriz': (context) => MatrizRoute(),
         '/controle': (context) => ControleRoute(),
         '/dashboard': (context) => DashBoardRoute(),
         '/balancete': (context) => BalanceteRoute(),

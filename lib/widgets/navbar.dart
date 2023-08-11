@@ -121,9 +121,8 @@ class _NavBarState extends State<NavBar> {
                           switch (RouteValue.selectedValue.toString()) {
                             case "HOME":
                               Navigator.pushNamed(context, '/');
-                            case "MATRIZ-PLANO DE CONTAS":
-                              Navigator.pushNamed(context, '/matriz');
                             case "CONTROLE":
+                              
                               Navigator.pushNamed(context, '/controle');
                             case "DASHBOARD":
                               Navigator.pushNamed(context, '/dashboard');

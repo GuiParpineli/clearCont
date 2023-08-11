@@ -35,14 +35,14 @@ class _PerfilRouteState extends State<PerfilRoute>
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.close,
             color: Colors.white,
           ),
         ),
         bottom: TabBar(
           controller: _tabController,
-          tabs: [
+          tabs: const [
             Tab(
               text: "Infomações da conta",
               icon: Icon(Icons.info),
@@ -59,6 +59,17 @@ class _PerfilRouteState extends State<PerfilRoute>
           labelColor: Colors.white,
           unselectedLabelColor: Colors.grey,
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.logout,
+                  color: Colors.white,
+                )),
+          )
+        ],
       ),
       body: TabBarView(
         controller: _tabController,

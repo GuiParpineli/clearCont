@@ -4,11 +4,11 @@ import 'package:clearcont/widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class MatrizTable extends StatefulWidget {
-  const MatrizTable({super.key});
+class BalanceteTable extends StatefulWidget {
+  const BalanceteTable({super.key});
 
   @override
-  State<MatrizTable> createState() => _MatrizTableState();
+  State<BalanceteTable> createState() => _BalanceteTableState();
 }
 
 List data = [
@@ -238,7 +238,7 @@ void initState() {
   initState();
 }
 
-class _MatrizTableState extends State<MatrizTable> {
+class _BalanceteTableState extends State<BalanceteTable> {
   @override
   Widget build(BuildContext context) {
     return Table(
@@ -250,8 +250,6 @@ class _MatrizTableState extends State<MatrizTable> {
         4: FixedColumnWidth(100.0),
         5: FixedColumnWidth(100.0),
         6: FixedColumnWidth(100.0),
-        7: FixedColumnWidth(100.0),
-        8: FixedColumnWidth(100.0),
       },
       border: const TableBorder(
         horizontalInside:
@@ -267,19 +265,13 @@ class _MatrizTableState extends State<MatrizTable> {
             Center(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: TextSimple(text: 'COD. CONTA'),
+                child: TextSimple(text: 'EMPRESA'),
               ),
             ),
             Center(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: TextSimple(text: 'DESCRIÇÃO'),
-              ),
-            ),
-            Center(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextSimple(text: 'TIPO'),
+                child: TextSimple(text: 'Nº CONTA'),
               ),
             ),
             Center(
@@ -291,31 +283,25 @@ class _MatrizTableState extends State<MatrizTable> {
             Center(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: TextSimple(text: 'RESPONSÁVEL'),
+                child: TextSimple(text: 'NOME DA CONTA'),
+              ),
+            ),
+            Center(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: TextSimple(text: 'TOTAL BALANCETE'),
               ),
             ),
             Center(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  'DOCUMENTO SUPORTE OBRIGATÓRIO',
+                  'CLASSIFICAÇÂO',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
-              ),
-            ),
-            Center(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextSimple(text: 'CONTROLA AGIANG?'),
-              ),
-            ),
-            Center(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextSimple(text: 'PLANILHA SUPORTE?'),
               ),
             ),
           ],
@@ -443,50 +429,6 @@ class _MatrizTableState extends State<MatrizTable> {
                         data[i]["title"],
                         maxLines: 2,
                         textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ),
-                TableRowInkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ConciliacaoCont(),
-                        ));
-                  },
-                  child: SizedBox(
-                    height: 50,
-                    width: 100,
-                    child: Center(
-                      child: Text(
-                        data[i]["title"],
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ),
-                TableRowInkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ConciliacaoCont(),
-                      ),
-                    );
-                  },
-                  child: SizedBox(
-                    height: 50,
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Center(
-                            child: Text(
-                          data[i]["title"],
-                          maxLines: 2,
-                          textAlign: TextAlign.center,
-                        )),
                       ),
                     ),
                   ),
