@@ -16,7 +16,6 @@ class _CardDocumentsAttachedState extends State<CardDocumentsAttached> {
         Padding(
           padding: const EdgeInsets.all(18.0),
           child: Card(
-
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: Column(

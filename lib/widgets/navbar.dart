@@ -122,7 +122,6 @@ class _NavBarState extends State<NavBar> {
                             case "HOME":
                               Navigator.pushNamed(context, '/');
                             case "CONTROLE":
-                              
                               Navigator.pushNamed(context, '/controle');
                             case "DASHBOARD":
                               Navigator.pushNamed(context, '/dashboard');
@@ -143,26 +142,6 @@ class _NavBarState extends State<NavBar> {
               ),
             ),
             widget.page,
-            // Container(
-            //   child: (() {
-            //     switch (RouteValue.selectedValue.toString()) {
-            //       case "MATRIZ-PLANO DE CONTAS":
-            //         return MatrizRoute();
-            //       case "CONTROLE":
-            //         return ControleRoute();
-            //       case "DASHBOARD":
-            //         return DashBoardRoute();
-            //       case "BALANCETE":
-            //         return BalanceteRoute();
-            //       case "CLIENTES":
-            //         return ClientesRoute();
-            //       case "FORNECEDORES":
-            //         return FornecedoresRoute();
-            //       default:
-            //         return Container();
-            //     }
-            //   })(),
-            // )
           ],
         ),
       ),

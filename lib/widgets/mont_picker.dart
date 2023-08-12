@@ -282,8 +282,7 @@ class _MonthPickerDialogState extends State<_MonthPickerDialog> {
     final int firstDateCompared = _firstDate.compareTo(date);
     final int lastDateCompared = _lastDate.compareTo(date);
 
-    VoidCallback? callback = (firstDateCompared <= 0) &&
-            (lastDateCompared >= 0)
+    VoidCallback? callback = (firstDateCompared <= 0) && (lastDateCompared >= 0)
         ? () => setState(() => _selectedDate = DateTime(date.year, date.month))
         : null;
 
@@ -298,7 +297,8 @@ class _MonthPickerDialogState extends State<_MonthPickerDialog> {
             : date.month == DateTime.now().month &&
                     date.year == DateTime.now().year
                 ? colorScheme.primary
-                : colorScheme.onSurface.withOpacity(0.87), backgroundColor: isSelected ? colorScheme.primary : null,
+                : colorScheme.onSurface.withOpacity(0.87),
+        backgroundColor: isSelected ? colorScheme.primary : null,
         shape: const StadiumBorder(),
       ),
       child: Text(DateFormat.MMM(locale).format(date)),
@@ -310,14 +310,12 @@ class _MonthPickerDialogState extends State<_MonthPickerDialog> {
     final int firstDateCompared = _firstDate.compareTo(DateTime(year));
     final int lastDateCompared = _lastDate.compareTo(DateTime(year));
 
-    VoidCallback? callback =
-        (firstDateCompared <= 0) &&
-                (lastDateCompared >= 0)
-            ? () => setState(() {
-                  _pageController.jumpToPage(year);
-                  setState(() => _isYearSelection = false);
-                })
-            : null;
+    VoidCallback? callback = (firstDateCompared <= 0) && (lastDateCompared >= 0)
+        ? () => setState(() {
+              _pageController.jumpToPage(year);
+              setState(() => _isYearSelection = false);
+            })
+        : null;
 
     bool isSelected = year == _selectedDate.year;
 
