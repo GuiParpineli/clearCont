@@ -1,7 +1,11 @@
+import 'dart:js_interop';
+
 import 'package:clearcont/routes/controle_route.dart';
 import 'package:clearcont/service/select_value.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import '../widgets/mont_picker.dart';
 import '../widgets/navbar.dart';
 
 class Home extends StatefulWidget {
@@ -12,11 +16,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  DateTime _dateTime = DateTime.now();
+  DateTime? _selected;
 
   @override
   void initState() {
     super.initState();
+    _selected = DateTime.now();
   }
 
   @override
@@ -49,31 +54,26 @@ class _HomeState extends State<Home> {
                       height: 200,
                     ),
                   ),
-                  Text("Selecione o Periodo"),
-                  Text(
-                    'Data selecionada: ${_dateTime.day}/${_dateTime.month}/${_dateTime.year}',
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.black,
-                      ),
-                      child: Text('Selecionar data'),
-                      onPressed: () async {
-                        final DateTime? picked = await showDatePicker(
-                          context: context,
-                          initialDate: _dateTime,
-                          firstDate: DateTime(1900),
-                          lastDate: DateTime(2100),
-                        );
-                        if (picked != null && picked != _dateTime) {
-                          setState(() {
-                            _dateTime = picked;
-                          });
-                        }
-                      },
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          child: const Text("Selecione o Periodo"),
+                          onPressed: () async {
+                            final selected = await showMonthPicker(
+                              context: context,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(1970),
+                              lastDate: DateTime(2050),
+                            );
+                            setState(() => _selected = selected);
+                          },
+                        ),
+                        const SizedBox(height: 10),
+                        if (!_selected.isNull)
+                          Text(DateFormat.MMMM('pt_BR').format(_selected!).toUpperCase()),
+                      ],
                     ),
                   ),
                 ],
